@@ -9,8 +9,11 @@ telegramToken = config.TELEGRAM_TOKEN
 bookPrice = types.LabeledPrice(label="Comprar Ahora", amount=15*100)
 
 bot = Bot(token=telegramToken)
-
-
 dispatcher = Dispatcher(bot=bot)
 
 
+async def main():
+    await dispatcher.start_polling(bot)
+
+
+asyncio.run(main())
