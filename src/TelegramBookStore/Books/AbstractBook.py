@@ -5,6 +5,7 @@ from typing import Optional
 
 @dataclass
 class AbstractBook(ABC):
+    '''Abstract Base Class for Book'''
     id: Optional[int]
     title: Optional[str]
     description: Optional[str]
