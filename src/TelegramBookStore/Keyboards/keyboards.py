@@ -9,7 +9,7 @@ startMenuKb = [
         text="💬Связаться с нами", callback_data="contact")]
 ]
 
-startMenu = InlineKeyboardMarkup(startMenuKb)
+startMenu = InlineKeyboardMarkup(inline_keyboard=startMenuKb)
 
 mainMenuKb = [
     [InlineKeyboardButton(
