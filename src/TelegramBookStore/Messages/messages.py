@@ -3,7 +3,7 @@ def welcomeUser() -> str:
     return f"{welcomeMessage}"
 
 
-def getUserId(message) -> str: 
+def getUserId(message) -> str:
     text: str = "Your ID is: "
     return f"{text}{message.from_user.id}"
 
