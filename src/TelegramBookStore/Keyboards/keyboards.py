@@ -3,16 +3,19 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 startMenuKb = [
-    [InlineKeyboardButton(text="🛒📚 Каталог книг")],
-    [InlineKeyboardButton(text="💬Связаться с нами", callback_data="contact")]
+    [InlineKeyboardButton(
+        text="🛒📚 Каталог книг", callback_data="books")],
+    [InlineKeyboardButton(
+        text="💬Связаться с нами", callback_data="contact")]
 ]
+
+startMenu = InlineKeyboardMarkup(startMenuKb)
 
 mainMenuKb = [
     [InlineKeyboardButton(
         text="📖Петр Андрушевич, «EL RUSO. Свой в Испании»", callback_data="info-peter")],
     [InlineKeyboardButton(
         text="📖Александр Баунов, «Конец режима»", callback_data="alexandr")],
-    [InlineKeyboardButton(text="💬Связаться с нами", callback_data="contact")]
 ]
 
 mainMenu = InlineKeyboardMarkup(inline_keyboard=mainMenuKb)
