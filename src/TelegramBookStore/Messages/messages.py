@@ -8,6 +8,12 @@ def welcome_user() -> str:
     return f"{welcome_message}"
 
 
+def book_catalgoue() -> str:
+    ''' Introduces the book catalogue'''
+    book_catalgoue_message = "📚 Вот наши доступные книги:"
+    return f"{book_catalgoue_message}"
+
+
 def get_user_id(message) -> str:
     '''Get the user's telegram ID'''
     text: str = "Your ID is: "
