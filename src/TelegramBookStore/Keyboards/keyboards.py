@@ -11,14 +11,14 @@ startMenuKb = [
 
 startMenu = InlineKeyboardMarkup(inline_keyboard=startMenuKb)
 
-mainMenuKb = [
+bookCatalgoueKb = [
     [InlineKeyboardButton(
-        text="📖Петр Андрушевич, «EL RUSO. Свой в Испании»", callback_data="info-peter")],
+        text="📖Петр Андрушевич, «EL RUSO. Свой в Испании»", callback_data="book-peter")],
     [InlineKeyboardButton(
-        text="📖Александр Баунов, «Конец режима»", callback_data="alexandr")],
+        text="📖Александр Баунов, «Конец режима»", callback_data="book-alexandr")],
 ]
 
-mainMenu = InlineKeyboardMarkup(inline_keyboard=mainMenuKb)
+bookCatalogueMenu = InlineKeyboardMarkup(inline_keyboard=bookCatalgoueKb)
 
 peterBookKb = [
     [InlineKeyboardButton(text="🛒 Купить", callback_data="buy-peter")],
