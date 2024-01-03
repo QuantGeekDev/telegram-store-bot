@@ -24,7 +24,7 @@ testPrice = [LabeledPrice(label="Купить", amount=19 * 100)]
 @dispatcher.message(CommandStart())
 async def command_start(message: Message):
     '''Responds to the /start command inside the chat, and greets the user with more options'''
-    await message.answer(text=messages.welcome_user(), reply_markup=keyboards.mainMenu)
+    await message.answer(text=messages.welcome_user(), reply_markup=keyboards.startMenu)
 
 
 @dispatcher.callback_query(F.data == "back")
