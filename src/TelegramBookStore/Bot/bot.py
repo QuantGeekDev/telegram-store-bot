@@ -45,20 +45,20 @@ async def back_to_menu(callback: CallbackQuery):
     )
 
 
-@dispatcher.callback_query(F.data == "info-peter")
+@dispatcher.callback_query(F.data == "book-peter")
 async def callback_peter(callback: CallbackQuery):
     """When user select Peter's book"""
     await callback.answer("")
     print(callback.data)
     await callback.message.answer(
-        text=f"Название книги: {bookData.baunovBookData.getTitle()}"
+        text=f"Название книги: {bookData.rusoGuruBookData.getTitle()}"
     )
-    await callback.message.answer_photo(photo=bookData.baunovBookData.getImageUrl())
+    await callback.message.answer_photo(photo=bookData.rusoGuruBookData.getImageUrl())
     await callback.message.answer(
-        text=f"Описание:{bookData.baunovBookData.getDescription()} \n",
+        text=f"Описание:{bookData.rusoGuruBookData.getDescription()} \n",
     )
     await callback.message.answer(
-        text=f"Цена: {bookData.baunovBookData.getPrice()}.00€",
+        text=f"Цена: {bookData.rusoGuruBookData.getPrice()}.00€",
         reply_markup=keyboards.peterBookMenu,
     )
 
@@ -94,8 +94,8 @@ async def callback_buyPeterNoAutograph(callback: CallbackQuery):
 async def callback_buyPeterNoAutograph(callback: CallbackQuery):
     await callback.answer("")
     await callback.message.answer_invoice(
-        title=bookData.baunovBookData.getTitle(),
-        description=bookData.baunovBookData.getDescription(),
+        title=bookData.rusoGuruBookData.getTitle(),
+        description=bookData.rusoGuruBookData.getDescription(),
         photo_url=bookData.rusoGuruBook.getImageUrl(),
         provider_token=config.PAYMENTS_TOKEN,
         payload="test",
