@@ -1,19 +1,27 @@
-def welcomeUser() -> str:
-    welcomeMessage = "Добро пожаловать в Телеграм-магазин «Маньяна и Авось» \nЧто бы вы хотели сделать? \n🛒STORE"
-    return f"{welcomeMessage}"
+'''This module contains messages used by the bookstore'''
 
 
-def getUserId(message) -> str:
+def welcome_user() -> str:
+    ''' Welcomes the User'''
+    welcome_message = "Добро пожаловать в Телеграм-магазин «Маньяна и Авось» \
+        \nЧто бы вы хотели сделать? \n🛒STORE"
+    return f"{welcome_message}"
+
+
+def get_user_id(message) -> str:
+    '''Get the user's telegram ID'''
     text: str = "Your ID is: "
     return f"{text}{message.from_user.id}"
 
 
-def getUsername(message) -> str:
+def get_username(message) -> str:
+    '''Get the users username'''
     text: str = "Your username is: "
     return f"{text}{message.from_user.username}"
 
 
-def getUserFirstName(message) -> str:
+def get_user_first_name(message) -> str:
+    '''Get the user's first name'''
     text: str = "Your first name is: "
     first_name = message.from_user.first_name
     if first_name:
@@ -21,7 +29,8 @@ def getUserFirstName(message) -> str:
     return ""
 
 
-def getUserLastName(message) -> str:
+def get_user_last_name(message) -> str:
+    '''Get the user's last name'''
     text: str = "Your last name is: "
     last_name = message.from_user.last_name
     if last_name:
@@ -29,6 +38,7 @@ def getUserLastName(message) -> str:
     return ""
 
 
-def unknownCommandMessage() -> str:
+def unknown_command_message() -> str:
+    '''Sends an error message if the command is not defined'''
     text: str = "Я не знаю этой команды, извините 😔. Пожалуйста, попробуйте еще раз."
     return text

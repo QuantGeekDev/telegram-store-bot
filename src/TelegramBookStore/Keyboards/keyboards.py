@@ -1,3 +1,5 @@
+''' This module contains custom keyboards used by the chatbot'''
+
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 startMenuKb = [
