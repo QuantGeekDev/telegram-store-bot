@@ -1,3 +1,6 @@
+'''This module contains messages used by the bookstore'''
+
+
 def welcome_user() -> str:
     ''' Welcomes the User'''
     welcome_message = "Добро пожаловать в Телеграм-магазин «Маньяна и Авось» \

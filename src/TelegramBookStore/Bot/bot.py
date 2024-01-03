@@ -21,14 +21,14 @@ testPrice = [LabeledPrice(label="Купить", amount=19 * 100)]
 
 @dispatcher.message(CommandStart())
 async def command_start(message: Message):
-    await message.answer(text=messages.welcomeUser(), reply_markup=keyboards.mainMenu)
+    await message.answer(text=messages.welcome_user(), reply_markup=keyboards.mainMenu)
 
 
 @dispatcher.callback_query(F.data == "back")
 async def backToMenu(callback: CallbackQuery):
     await callback.answer("")
     await callback.message.answer(
-        text=messages.welcomeUser(), reply_markup=keyboards.mainMenu
+        text=messages.welcome_user(), reply_markup=keyboards.mainMenu
     )
 
 
@@ -93,7 +93,7 @@ async def callback_buyPeterNoAutograph(callback: CallbackQuery):
 @dispatcher.message()
 async def echo(message: Message):
     await message.answer(
-        text=messages.unknownCommandMessage(), reply_markup=keyboards.mainMenu
+        text=messages.unknown_command_message(), reply_markup=keyboards.mainMenu
     )
 
 
