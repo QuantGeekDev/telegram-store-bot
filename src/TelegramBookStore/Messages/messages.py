@@ -1,13 +1,9 @@
-#messages.py
-# Replace messages to change text or modify language
-
-# START SCREEN
-def welcomeUser(message) -> str:
-    text = "Добро пожаловать в Телеграм-магазин «Маньяна и Авось» \nЧто бы вы хотели сделать? \n🛒STORE"
-    return f"{text}"
+def welcomeUser() -> str:
+    welcomeMessage = "Добро пожаловать в Телеграм-магазин «Маньяна и Авось» \nЧто бы вы хотели сделать? \n🛒STORE"
+    return f"{welcomeMessage}"
 
 
-def getUserId(message) -> str:
+def getUserId(message) -> str: 
     text: str = "Your ID is: "
     return f"{text}{message.from_user.id}"
 
@@ -33,6 +29,6 @@ def getUserLastName(message) -> str:
     return ""
 
 
-def getUnknownCommandMessage() -> str:
+def unknownCommandMessage() -> str:
     text: str = "Я не знаю этой команды, извините 😔. Пожалуйста, попробуйте еще раз."
     return text
