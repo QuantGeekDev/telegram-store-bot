@@ -2,6 +2,14 @@
 # Telegram Bookstore Bot
 ### By Alex Andrushevich
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=QuantGeekDev_telegram-store-bot&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=QuantGeekDev_telegram-store-bot)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=QuantGeekDev_telegram-store-bot&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=QuantGeekDev_telegram-store-bot)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=QuantGeekDev_telegram-store-bot&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=QuantGeekDev_telegram-store-bot)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=QuantGeekDev_telegram-store-bot&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=QuantGeekDev_telegram-store-bot)
+
 Basic Telegram bot that allows to sell hardcoded books
 This is for two books, without plans for adding further books down the line - hence the choice to hardcode the book data
 
