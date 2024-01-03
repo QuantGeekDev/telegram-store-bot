@@ -14,3 +14,4 @@ Make sure to create a config.py file in your src/TelegramBookStore directory and
 
 `TELEGRAM_TOKEN = <yourTokenGoesHere>`
 
+Developed in Python 3.11.5
