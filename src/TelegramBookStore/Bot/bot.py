@@ -65,6 +65,7 @@ async def callback_peter(callback: CallbackQuery):
 
 @dispatcher.callback_query(F.data == "buy-peter")
 async def callback_buy(callback: CallbackQuery):
+    ''' When user selects Peter's book, offers autograph customization options'''
     await callback.answer("")
     await callback.message.answer(
         text="Вы выбрали: Петр Андрушевич, «EL RUSO. Свой в Испании».\nХотите добавить персональную подпись автора? (максимум 50 символов)",
@@ -73,7 +74,8 @@ async def callback_buy(callback: CallbackQuery):
 
 
 @dispatcher.callback_query(F.data == "buy--peter--autograph")
-async def callback_buyPeterAutograph(callback: CallbackQuery):
+async def callback_buy_peter_autograph(callback: CallbackQuery):
+    ''' When user selects buy Peter's book with autograph'''
     await callback.answer("")
     await callback.message.answer(
         text="Напишите, пожалуйста, текст для автографа, будут написаны только первые 50 символов."
@@ -82,7 +84,8 @@ async def callback_buyPeterAutograph(callback: CallbackQuery):
 
 
 @dispatcher.callback_query(F.data == "buy--peter--no-autograph")
-async def callback_buyPeterNoAutograph(callback: CallbackQuery):
+async def callback_buy_peter_no_autograph(callback: CallbackQuery):
+    ''' When user selects no autograph option, redirects to stripe purchase page'''
     await callback.answer("")
     await callback.message.answer(
         text="Продолжить оформление заказа?",
@@ -91,7 +94,9 @@ async def callback_buyPeterNoAutograph(callback: CallbackQuery):
 
 
 @dispatcher.callback_query(F.data == "buy--peter--no-autograph--no-coupon")
-async def callback_buyPeterNoAutograph(callback: CallbackQuery):
+async def callback_buy_peter_no_autograph(callback: CallbackQuery):
+    ''' When user selects no autograph option, redirects to stripe purchase page'''
+
     await callback.answer("")
     await callback.message.answer_invoice(
         title=bookData.rusoGuruBookData.getTitle(),
