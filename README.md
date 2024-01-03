@@ -9,3 +9,7 @@ Future implementations will fetch book data from an API, allowing a manager to a
 
 To run, use:
 ```python src/TelegramBookStore/main.py```
+
+Make sure to create a config.py file in your src/TelegramBookStore directory and add your telegram bot token:
+
+`TELEGRAM_TOKEN = <yourTokenGoesHere>`
