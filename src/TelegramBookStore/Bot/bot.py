@@ -1,5 +1,5 @@
 import config as config
-import asyncio
+
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, LabeledPrice, ReplyKeyboardRemove
@@ -13,7 +13,6 @@ telegramToken = config.TELEGRAM_TOKEN
 bot = Bot(token=telegramToken)
 
 dispatcher = Dispatcher(bot=bot)
-
 
 
 testPrice = [LabeledPrice(label="Купить", amount=19*100)]
@@ -70,6 +69,4 @@ async def echo(message: Message):
 async def main():
     await dispatcher.start_polling(bot)
 
-if __name__ == "__main__":
-    asyncio.run(main())
 
