@@ -31,7 +31,7 @@ async def command_start(message: Message):
 async def book_catalogue(callback: CallbackQuery):
     """Displays the book catalogue"""
     await callback.answer("")
-    await callback.message.answer(text="",
+    await callback.message.answer(text=messages.book_catalgoue(),
                                   reply_markup=keyboards.bookCatalogueMenu
                                   )
 

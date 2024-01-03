@@ -10,7 +10,7 @@ def welcome_user() -> str:
 
 def book_catalgoue() -> str:
     ''' Introduces the book catalogue'''
-    book_catalgoue_message = "вот наши доступные книги:"
+    book_catalgoue_message = "📚 Вот наши доступные книги:"
     return f"{book_catalgoue_message}"
 
 
