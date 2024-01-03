@@ -1,4 +1,6 @@
-import config as config
+'''This module contains the Bot assembly'''
+
+import config
 
 
 from aiogram import Bot, Dispatcher, F
@@ -21,11 +23,13 @@ testPrice = [LabeledPrice(label="Купить", amount=19 * 100)]
 
 @dispatcher.message(CommandStart())
 async def command_start(message: Message):
+    '''Responds to the /start command inside the chat, and greets the user with more options'''
     await message.answer(text=messages.welcome_user(), reply_markup=keyboards.mainMenu)
 
 
 @dispatcher.callback_query(F.data == "back")
-async def backToMenu(callback: CallbackQuery):
+async def back_to_menu(callback: CallbackQuery):
+    '''Returns user to main menu'''
     await callback.answer("")
     await callback.message.answer(
         text=messages.welcome_user(), reply_markup=keyboards.mainMenu
@@ -33,7 +37,8 @@ async def backToMenu(callback: CallbackQuery):
 
 
 @dispatcher.callback_query(F.data == "info-peter")
-async def callback_Peter(callback: CallbackQuery):
+async def callback_peter(callback: CallbackQuery):
+    '''When user select Peter's book'''
     await callback.answer("")
     print(callback.data)
     await callback.message.answer(
