@@ -1,4 +1,5 @@
-#Telegram Bookstore Bot
+
+# Telegram Bookstore Bot
 ### By Alex Andrushevich
 
 Basic Telegram bot that allows to sell hardcoded books
