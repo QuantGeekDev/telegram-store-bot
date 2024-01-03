@@ -14,9 +14,9 @@ startMenu = InlineKeyboardMarkup(inline_keyboard=startMenuKb)
 bookCatalgoueKb = [
     [InlineKeyboardButton(
         text="📖Петр Андрушевич, «EL RUSO. Свой в Испании»", callback_data="book-peter")],
-    [InlineKeyboardButton(
-        text="📖Александр Баунов, «Конец режима»", callback_data="book-alexandr")],
-    [InlineKeyboardButton(text="🔙 Назад", callback_data="back")],
+    # [InlineKeyboardButton(
+    #     text="📖Александр Баунов, «Конец режима»", callback_data="book-alexandr")],
+    [InlineKeyboardButton(text="🔙 Назад", callback_data="back-to-main")],
 ]
 
 bookCatalogueMenu = InlineKeyboardMarkup(inline_keyboard=bookCatalgoueKb)
@@ -37,3 +37,15 @@ peterCustomizationKb = [
 
 peterCustomizationMenu = InlineKeyboardMarkup(
     inline_keyboard=peterCustomizationKb)
+
+peterBookBuyNoAutographKb = [
+    [InlineKeyboardButton(text='Купить', url='https://buy.stripe.com/4gwaGg9KT2uIeic7st')]]
+
+peterBookBuyNoAutographMenu = InlineKeyboardMarkup(
+    inline_keyboard=peterBookBuyNoAutographKb)
+
+peterBookBuyAutographKb = [
+    [InlineKeyboardButton(text='Купить', url='https://buy.stripe.com/28o01C0ajglyfmg5kn')]]
+
+peterBookBuyAutographMenu = InlineKeyboardMarkup(
+    inline_keyboard=peterBookBuyAutographKb)
