@@ -38,33 +38,42 @@ async def book_catalogue(callback: CallbackQuery):
 
 @dispatcher.callback_query(F.data == "back")
 async def back_to_menu(callback: CallbackQuery):
-    """Returns user to main menu"""
+    """Returns user to book menu"""
     await callback.answer("")
     await callback.message.answer(
         text=messages.welcome_user(), reply_markup=keyboards.bookCatalogueMenu
     )
 
 
-@dispatcher.callback_query(F.data == "info-peter")
+@dispatcher.callback_query(F.data == "back-to-main")
+async def back_to_main_menu(callback: CallbackQuery):
+    """Returns user to main menu"""
+    await callback.answer("")
+    await callback.message.answer(
+        text=messages.welcome_user(), reply_markup=keyboards.startMenu)
+
+
+@dispatcher.callback_query(F.data == "book-peter")
 async def callback_peter(callback: CallbackQuery):
     """When user select Peter's book"""
     await callback.answer("")
     print(callback.data)
     await callback.message.answer(
-        text=f"Название книги: {bookData.baunovBookData.getTitle()}"
+        text=f"Название книги: {bookData.rusoGuruBookData.getTitle()}"
     )
-    await callback.message.answer_photo(photo=bookData.baunovBookData.getImageUrl())
+    await callback.message.answer_photo(photo=bookData.rusoGuruBookData.getImageUrl())
     await callback.message.answer(
-        text=f"Описание:{bookData.baunovBookData.getDescription()} \n",
+        text=f"Описание:{bookData.rusoGuruBookData.getDescription()} \n",
     )
     await callback.message.answer(
-        text=f"Цена: {bookData.baunovBookData.getPrice()}.00€",
+        text=f"Цена: {bookData.rusoGuruBookData.getPrice()}.00€",
         reply_markup=keyboards.peterBookMenu,
     )
 
 
 @dispatcher.callback_query(F.data == "buy-peter")
 async def callback_buy(callback: CallbackQuery):
+    ''' When user selects Peter's book, offers autograph customization options'''
     await callback.answer("")
     await callback.message.answer(
         text="Вы выбрали: Петр Андрушевич, «EL RUSO. Свой в Испании».\nХотите добавить персональную подпись автора? (максимум 50 символов)",
@@ -73,43 +82,33 @@ async def callback_buy(callback: CallbackQuery):
 
 
 @dispatcher.callback_query(F.data == "buy--peter--autograph")
-async def callback_buyPeterAutograph(callback: CallbackQuery):
+async def callback_buy_peter_autograph(callback: CallbackQuery):
+    ''' When user selects buy Peter's book with autograph'''
     await callback.answer("")
     await callback.message.answer(
-        text="Напишите, пожалуйста, текст для автографа, будут написаны только первые 50 символов."
+        text="Вы выбрали книгу с автографом\n",
+        reply_markup=keyboards.peterBookBuyAutographMenu
     )
-    await callback.message.answer("Text goes here:", reply_markup=ReplyKeyboardRemove())
 
 
 @dispatcher.callback_query(F.data == "buy--peter--no-autograph")
-async def callback_buyPeterNoAutograph(callback: CallbackQuery):
+async def callback_buy_peter_no_autograph_no_coupon(callback: CallbackQuery):
+    ''' When user selects no autograph option, redirects to stripe purchase page'''
     await callback.answer("")
     await callback.message.answer(
-        text="Продолжить оформление заказа?",
-        reply_markup=keyboards.peterCustomizationMenuStep2NoAutograph,
-    )
-
-
-@dispatcher.callback_query(F.data == "buy--peter--no-autograph--no-coupon")
-async def callback_buyPeterNoAutograph(callback: CallbackQuery):
-    await callback.answer("")
-    await callback.message.answer_invoice(
-        title=bookData.baunovBookData.getTitle(),
-        description=bookData.baunovBookData.getDescription(),
-        photo_url=bookData.rusoGuruBook.getImageUrl(),
-        provider_token=config.PAYMENTS_TOKEN,
-        payload="test",
-        currency="eur",
-        prices=testPrice,
+        text="Вы выбрали книгу без автографа\n",
+        reply_markup=keyboards.peterBookBuyNoAutographMenu
     )
 
 
 @dispatcher.message()
 async def echo(message: Message):
+    ''' If command is not registered'''
     await message.answer(
         text=messages.unknown_command_message(), reply_markup=keyboards.bookCatalogueMenu
     )
 
 
 async def main():
+    ''' Main launch command with long polling option'''
     await dispatcher.start_polling(bot)
