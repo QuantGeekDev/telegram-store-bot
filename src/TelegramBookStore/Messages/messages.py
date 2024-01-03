@@ -3,8 +3,8 @@
 
 def welcome_user() -> str:
     ''' Welcomes the User'''
-    welcome_message = "Добро пожаловать в Телеграм-магазин «Маньяна и Авось» \
-        \nЧто бы вы хотели сделать? \n🛒STORE"
+    welcome_message = "👋🏼 Добро пожаловать в Телеграм-магазин  «Маньяна и Авось» \
+        \nЧто бы вы хотели сделать? \n"
     return f"{welcome_message}"
 
 
