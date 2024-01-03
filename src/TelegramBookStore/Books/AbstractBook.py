@@ -26,7 +26,3 @@ class AbstractBook(ABC):
 
     def getImageUrl(self):
         return self.imageUrl
-
-
-
-
